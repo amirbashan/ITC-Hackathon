@@ -34,7 +34,7 @@ const rideSchema = new mongoose.Schema({
     default: Date.now(),
     required: [true, "The time of day must be specified"],
   },
-  rideStatus: {
+  status: {
     type: Number,
     required: [true, "A ride must have a status."],
     default: 0,
@@ -51,6 +51,6 @@ const rideSchema = new mongoose.Schema({
 rideSchema.index({ pickUp: "2dsphere" });
 rideSchema.index({ dropOff: "2dsphere" });
 
-const ride = mongoose.model("ride", rideSchema);
+const ride = mongoose.model("Ride", rideSchema);
 
 export default ride;
