@@ -35,11 +35,18 @@ class MyGoogleMap extends Component {
     this.setCurrentLocation();
   }
 
-  onMarkerInteraction = (childKey, childProps, mouse) => {
+  onMarkerStartInteraction = (childKey, childProps, mouse) => {
     this.setState({
       draggable: false,
-      lat: mouse.lat,
-      lng: mouse.lng,
+      latStart: mouse.lat,
+      lngStart: mouse.lng,
+    });
+  };
+  onMarkerEndInteraction = (childKey, childProps, mouse) => {
+    this.setState({
+      draggable: false,
+      latEnd: mouse.lat,
+      lngEnd: mouse.lng,
     });
   };
   onMarkerInteractionMouseUp = (childKey, childProps, mouse) => {
@@ -124,7 +131,7 @@ class MyGoogleMap extends Component {
 
   render() {
     const { places, mapApiLoaded, mapInstance, mapApi } = this.state;
-    console.log(this.state.latStrat);
+    console.log(this.state.latStart);
     console.log(this.state.lngStart);
     console.log(this.state.latEnd);
     console.log(this.state.lngEnd);
@@ -159,12 +166,12 @@ class MyGoogleMap extends Component {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
         >
-          <Marker text={this.state.address} lat={this.state.latStart} lng={this.state.lngEnd} />
+          <Marker text={this.state.address} lat={this.state.latStart} lng={this.state.lngStart} />
         </GoogleMapReact>
 
         <div className="info-wrapper">
           <div className="map-details">
-            Latitude: <span>{this.state.latStart}</span>, Longitude: <span>{this.state.lngEnd}</span>
+            Latitude: <span>{this.state.latStart}</span>, Longitude: <span>{this.state.lngStart}</span>
           </div>
           <div className="map-details">
             Zoom: <span>{this.state.zoom}</span>
