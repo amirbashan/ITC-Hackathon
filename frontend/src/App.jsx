@@ -14,7 +14,7 @@ import { Routes, Route } from "react-router-dom";
 function App() {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       <MiniNav />
       <Routes>
         <Route path="/" element={<StartPage />}></Route>

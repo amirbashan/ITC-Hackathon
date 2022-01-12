@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./RegisterCard.css";
 import Input from "../Input/Input";
-import { signUpUser } from "../../lib/UsersDB";
+import { signUpUser } from "../../lib/AllDB";
 import "./RoundButton.css";
 
 export default function RegisterCard() {
@@ -56,7 +56,7 @@ export default function RegisterCard() {
               Submit
             </button>
             {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
-          </div>    
+          </div>
           <div className="signin-line">
             <p className="bold">Sign In</p>
           </div>

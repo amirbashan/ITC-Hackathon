@@ -1,27 +1,29 @@
 import axios from "axios";
 
+const URL = `https://ride2gether-api.herokuapp.com/api/v1`;
+
 export const signUpUser = (user) => {
   return axios
-    .post("http://localhost:8000/users/signup", user)
+    .post(`${URL}/users/signup`, user)
     .then((response) => {
       return response.data;
     })
     .catch((error) => alert(error.response));
 };
 
-// export const loginUser = (user) => {
-//   return axios
-//     .post("http://localhost:8000/users/login", user)
-//     .then((response) => {
-//       return response.data;
-//     })
-//     .catch((error) => alert(error.response.data));
-// };
+export const loginUser = (user) => {
+  return axios
+    .post(`${URL}/users/login`, user)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => alert(error.response.data));
+};
 
 // export const getBasicUserInfo = (token) => {
 //   return axios
 
-//     .get("http://localhost:8000/users/myInfo", { headers: { Authorization: `Bearer ${token}` } })
+//     .get(`http://localhost:8000/users/myInfo`, { headers: { Authorization: `Bearer ${token}` } })
 //     .then((response) => {
 //       return response;
 //     })
@@ -31,7 +33,7 @@ export const signUpUser = (user) => {
 // export const getFullUserInfo = (token) => {
 //   return axios
 
-//     .get("http://localhost:8000/users/id", { headers: { Authorization: `Bearer ${token}` } })
+//     .get(`http://localhost:8000/users/id`, { headers: { Authorization: `Bearer ${token}` } })
 //     .then((response) => {
 //       return response.data;
 //     })
@@ -41,7 +43,7 @@ export const signUpUser = (user) => {
 // export const getUsersTableInfo = (token) => {
 //   return axios
 
-//     .get("http://localhost:8000/users/fullUserList", { headers: { Authorization: `Bearer ${token}` } })
+//     .get(`http://localhost:8000/users/fullUserList`, { headers: { Authorization: `Bearer ${token}` } })
 //     .then((response) => {
 //       return response.data;
 //     })
