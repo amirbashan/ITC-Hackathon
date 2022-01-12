@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react"; 
 import MapContext from '../MapContext'
-const {latStart,
-    lngStart,
-    latEnd,
-    lngEnd } = useContext(MapContext)
+
 export default function RideSubmission() {
+    const { latStart, lngStart, latEnd, lngEnd } = useContext(MapContext);
     async function handleSubmit(){
 console.log (latStart,
     lngStart,
