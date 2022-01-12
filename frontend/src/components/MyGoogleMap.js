@@ -37,16 +37,15 @@ class MyGoogleMap extends Component {
   }
 
   onMarkerInteraction = (childKey, childProps, mouse) => {
-        let { setlatStart, setlngStart } = this.props;
+    let { setlatStart, setlngStart } = this.props;
 
     this.setState({
       draggable: false,
       lat: mouse.lat,
       lng: mouse.lng,
     });
-    setlatStart(mouse.lat)
-    setlngStart(mouse.lng)
-
+    setlatStart(mouse.lat);
+    setlngStart(mouse.lng);
   };
   onMarkerInteractionMouseUp = (childKey, childProps, mouse) => {
     this.setState({ draggable: true });
@@ -67,7 +66,7 @@ class MyGoogleMap extends Component {
     });
     let { setlatStart, setlngStart } = this.props;
     setlatStart(value.lat);
-    setlngStart(  value.lng)
+    setlngStart(value.lng);
   };
 
   apiHasLoaded = (map, maps) => {
@@ -139,7 +138,7 @@ class MyGoogleMap extends Component {
     console.log(this.state.lat);
     console.log(this.state.lng);
     return (
-      <div style={{ height: "100vh", width: "100vh" }}>
+      <div style={{ height: "100%", width: "100%" }}>
         {mapApiLoaded && (
           <div>
             <AutoComplete

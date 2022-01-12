@@ -1,4 +1,5 @@
 import "./App.css";
+import { useLocation } from "react-router-dom"
 
 import MiniNav from "./components/MiniNav/MiniNav";
 import LoginPage from "./pages/LoginPage/LoginPage";
@@ -12,10 +13,12 @@ import Navbar from "./components/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+  const { pathname } = useLocation();
+
   return (
     <>
+      {pathname === "/" || pathname === "/signup" || pathname === "/login" ? <MiniNav /> : <Navbar /> }
       {/* <Navbar /> */}
-      <MiniNav />
       <Routes>
         <Route path="/" element={<StartPage />}></Route>
         <Route path="/signup" element={<RegisterPage />}></Route>

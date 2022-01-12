@@ -27,7 +27,7 @@ const rideData = {
 console.log(rideData);
         }
     return (
-      <>
+      <div id="mapPage">
         {showmap1 && (
           <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />
         )}
@@ -41,7 +41,7 @@ console.log(rideData);
        <Input type="time" placeholder="Choose ride time " onChange={(event)=>{setrideTime(event.target.value)}} />
        <Button onClick={handleSubmit}>Submit </Button>
        </>)}
-      </>
+      </div>
     );
 }
 
