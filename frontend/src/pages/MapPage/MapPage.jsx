@@ -18,7 +18,13 @@ const MapPage = () => {
     }
 
         function handleSubmit() {
-console.log(latStart,latEnd,lngStart,lngEnd, rideTime)
+const rideData = {
+  rideTime: rideTime,
+  pickUp: { coordinates: [latStart, lngStart] },
+  dropOff: { coordinates: [latEnd, lngEnd] },
+};
+
+console.log(rideData);
         }
     return (
       <>
