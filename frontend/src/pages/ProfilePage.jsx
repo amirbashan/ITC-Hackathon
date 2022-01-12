@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { AppContext } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
-import { getFullUserInfo, editUserInfo } from "../lib/UsersDB";
+import { getOneUserInfo, editUserInfo } from "../lib/AllDB";
 import Form from "react-bootstrap/Form";
 
 export default function ProfilePage() {
@@ -18,13 +18,14 @@ export default function ProfilePage() {
   if (!currentUser) navigate(`/`);
 
   useEffect(() => {
-    getFullUserInfo(token).then((response) => {
-      setFirst_name(response.first_name);
-      setLast_name(response.last_name);
-      setPhone(response.phone);
-      SetBio(response.bio);
-      SetRole(response.isAdmin);
-      setJoined(response.created_date);
+    getOneUserInfo().then((response) => {
+      console.log(response);
+      //   setFirst_name(response.first_name);
+      //   setLast_name(response.last_name);
+      //   setPhone(response.phone);
+      //   SetBio(response.bio);
+      //   SetRole(response.isAdmin);
+      //   setJoined(response.created_date);
     });
   }, [token]);
 
