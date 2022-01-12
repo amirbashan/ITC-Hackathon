@@ -34,7 +34,7 @@ export const loginUser = (user) => {
 export const getOneUserInfo = () => {
   return axios
 
-    .get(`${URL}/users/login`)
+    .get(`${URL}/users/`)
     .then((response) => {
       return response.data;
     })

@@ -1,11 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import { AppContext } from "../Context/AppContext";
 import { useNavigate } from "react-router-dom";
 import { getOneUserInfo, editUserInfo } from "../lib/AllDB";
 import Form from "react-bootstrap/Form";
 
 export default function ProfilePage() {
-  const { currentUser, token } = useContext(AppContext);
   const navigate = useNavigate();
   const [first_name, setFirst_name] = useState("");
   const [last_name, setLast_name] = useState("");
@@ -14,8 +12,6 @@ export default function ProfilePage() {
   const [role, SetRole] = useState("");
   const [joined, setJoined] = useState("");
   const [editMode, setEditMode] = useState(false);
-
-  if (!currentUser) navigate(`/`);
 
   useEffect(() => {
     getOneUserInfo().then((response) => {
@@ -27,7 +23,7 @@ export default function ProfilePage() {
       //   SetRole(response.isAdmin);
       //   setJoined(response.created_date);
     });
-  }, [token]);
+  }, []);
 
   const fixData = (date) => {
     const newDate = date.substr(8, 2) + "-" + date.substr(5, 2) + "-" + date.substr(0, 4);
@@ -49,8 +45,8 @@ export default function ProfilePage() {
         bio,
       };
       if (window.confirm("Confirm changes")) {
-        const response = await editUserInfo(token, user, currentUser.email);
-        if (response.affectedRows === 1) alert("Edit Successful");
+        // const response = await editUserInfo(token, user, currentUser.email);
+        // if (response.affectedRows === 1) alert("Edit Successful");
         setEditMode(false);
       }
     } catch (err) {
@@ -66,7 +62,7 @@ export default function ProfilePage() {
           <div className="row mb-2">
             <div className="col d-flex flex-wrap align-items-end">
               <label>Email</label>
-              <input type="text" readOnly value={currentUser.email} className="form-control" />
+              <input type="text" readOnly value={first_name} className="form-control" />
             </div>
             <div className="col-3 d-flex flex-wrap align-items-end">
               <label>Joined date</label>
