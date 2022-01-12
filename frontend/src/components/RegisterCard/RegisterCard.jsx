@@ -52,11 +52,11 @@ export default function RegisterCard() {
         <div id="formControl">
           <div className="signup-line">
             <p className="bold">Sign Up</p>
-            <button type="submit" id="roundButton" disabled={password !== passConfirm} className="btn btn-sm btn-primary ">
+            <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary ">
               Submit
             </button>
             {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
-          </div>
+          </div>    
           <div className="signin-line">
             <p className="bold">Sign In</p>
           </div>
