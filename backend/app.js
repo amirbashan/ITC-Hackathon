@@ -66,6 +66,7 @@ const limiter = rateLimit({
 app.use("/api", limiter);
 
 //CORS Policy
+// app.use(cors());
 app.use(cors({ credentials: true, origin: "https://fantasticpets.herokuapp.com" }));
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://fantasticpets.herokuapp.com"); // update to match the domain you will make the request from

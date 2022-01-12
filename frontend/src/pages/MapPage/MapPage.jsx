@@ -1,7 +1,6 @@
 import React,{useState} from 'react'
 import MyGoogleMap from '../../components/MyGoogleMap'
 import MyGoogleMap2 from '../../components/mapEndpoint/MyGoogleMap2'
-
 import { Button,Input } from "@chakra-ui/react";
 
 
@@ -10,7 +9,7 @@ const MapPage = () => {
     const [showmap2, setshowmap2] = useState(false)
     const [latStart, setlatStart] = useState(null)
     const [lngStart, setlngStart] = useState(null)
-  const [rideRadius, setrideRadius] = useState(null);
+  const [rideTime, setrideTime] = useState(null);
     const [latEnd, setlatEnd] = useState(null)
     const [lngEnd, setlngEnd] = useState(null)
     function handleNext() {
@@ -19,7 +18,13 @@ const MapPage = () => {
     }
 
         function handleSubmit() {
-console.log(latStart,latEnd,lngStart,lngEnd, rideRadius)
+const rideData = {
+  rideTime: rideTime,
+  pickUp: { coordinates: [latStart, lngStart] },
+  dropOff: { coordinates: [latEnd, lngEnd] },
+};
+
+console.log(rideData);
         }
     return (
       <>
@@ -30,8 +35,12 @@ console.log(latStart,latEnd,lngStart,lngEnd, rideRadius)
           <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />
         )}
         {showmap1 && <Button onClick={handleNext}>next</Button>}
-        {showmap2 && <Button onClick={handleSubmit}>submit</Button>}
-        <Input placeholder="Choose distance radius" onChange={(event)=>setrideRadius(event.target.value)} />
+        {showmap2 && <Button onClick={()=>{setshowmap2(false)}}>next</Button>}
+       {!showmap1 && !showmap2 &&(
+                <>
+       <Input type="time" placeholder="Choose ride time " onChange={(event)=>{setrideTime(event.target.value)}} />
+       <Button onClick={handleSubmit}>Submit </Button>
+       </>)}
       </>
     );
 }
