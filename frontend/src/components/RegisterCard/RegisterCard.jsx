@@ -3,8 +3,10 @@ import "./RegisterCard.css";
 import Input from "../Input/Input";
 import { signUpUser } from "../../lib/AllDB";
 import "./RoundButton.css";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterCard() {
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,17 +25,19 @@ export default function RegisterCard() {
       const newUser = {
         email: email,
         password: password,
+        passwordConfirm: passConfirm,
         name: name,
         phone: phone,
       };
+      console.log(newUser);
       const response = await signUpUser(newUser);
       setName("");
       setEmail("");
       setPassword("");
       setPassConfirm("");
       setPhone("");
-      if (response) {
-        // navigate(`/`);
+      if (response.status === "success") {
+        navigate(`/login`);
         alert(response);
       }
     } catch (err) {
@@ -43,15 +47,20 @@ export default function RegisterCard() {
 
   return (
       <form id="registerCard" onSubmit={(e) => handleOnSubmit(e)}>
-        <Input type="text" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
-        <Input type="email" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
-        <Input type="Password" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
-        <Input type="Password" onChange={(e) => handlePassConfirmChange(e)} value={passConfirm} placeholder="Confirm Password" maxLength="250" required />
-        <Input type="text" onChange={(e) => handlePhoneChange(e)} placeholder="Phone Number" value={phone} maxLength="20" required />
-                    <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button bold">
-              Sign Up
-            </button>
-        {/* <div id="formControl">
+        <input type="text" className="" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
+        <input type="email" className="" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
+        <input type="Password" className="" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
+        <input
+          type="Password"
+          className=""
+          onChange={(e) => handlePassConfirmChange(e)}
+          value={passConfirm}
+          placeholder="Confirm Password"
+          maxLength="250"
+          required
+        />
+        <input type="text" className="" onChange={(e) => handlePhoneChange(e)} value={phone} maxLength="20" placeholder="phone" required />
+        <div id="formControl">
           <div className="signup-line">
             <p className="bold">Sign Up</p>
             <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button">
@@ -62,7 +71,7 @@ export default function RegisterCard() {
           <div className="signin-line">
             <p className="bold">Sign In</p>
           </div>
-        </div> */}
+        </div>
       </form>
   );
 }

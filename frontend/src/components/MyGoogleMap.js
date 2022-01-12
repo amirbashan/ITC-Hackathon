@@ -24,7 +24,7 @@ class MyGoogleMap extends Component {
       geoCoder: null,
       places: [],
       center: [],
-      zoom: 9,
+      zoom: 11,
       address: "",
       draggable: true,
       lat: null,
@@ -97,23 +97,20 @@ class MyGoogleMap extends Component {
 
     const geocoder = new mapApi.Geocoder();
 
-    geocoder.geocode(
-      { location: { lat: this.state.lat, lng: this.state.lng } },
-      (results, status) => {
-        console.log(results);
-        console.log(status);
-        if (status === "OK") {
-          if (results[0]) {
-            this.zoom = 12;
-            this.setState({ address: results[0].formatted_address });
-          } else {
-            window.alert("No results found");
-          }
+    geocoder.geocode({ location: { lat: this.state.lat, lng: this.state.lng } }, (results, status) => {
+      console.log(results);
+      console.log(status);
+      if (status === "OK") {
+        if (results[0]) {
+          this.zoom = 12;
+          this.setState({ address: results[0].formatted_address });
         } else {
-          window.alert("Geocoder failed due to: " + status);
+          window.alert("No results found");
         }
+      } else {
+        window.alert("Geocoder failed due to: " + status);
       }
-    );
+    });
   }
 
   // Get Current Location Coordinates
@@ -141,11 +138,7 @@ class MyGoogleMap extends Component {
       <div style={{ height: "100%", width: "100%" }}>
         {mapApiLoaded && (
           <div>
-            <AutoComplete
-              map={mapInstance}
-              mapApi={mapApi}
-              addplace={this.addPlace}
-            />
+            <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />
           </div>
         )}
         <GoogleMapReact
@@ -166,17 +159,12 @@ class MyGoogleMap extends Component {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
         >
-          <Marker
-            text={this.state.address}
-            lat={this.state.lat}
-            lng={this.state.lng}
-          />
+          <Marker text={this.state.address} lat={this.state.lat} lng={this.state.lng} />
         </GoogleMapReact>
 
         <div className="info-wrapper">
           <div className="map-details">
-            Latitude: <span>{this.state.lat}</span>, Longitude:{" "}
-            <span>{this.state.lng}</span>
+            Latitude: <span>{this.state.lat}</span>, Longitude: <span>{this.state.lng}</span>
           </div>
           <div className="map-details">
             Zoom: <span>{this.state.zoom}</span>
