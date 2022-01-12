@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import MyGoogleMap from '../../components/MyGoogleMap'
 import MyGoogleMap2 from '../../components/mapEndpoint/MyGoogleMap2'
 import { Button,Input } from "@chakra-ui/react";
-
+import './MapPage.css';
 
 const MapPage = () => {
     const [showmap1, setshowmap1] = useState(true)

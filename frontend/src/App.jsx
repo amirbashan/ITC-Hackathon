@@ -9,6 +9,7 @@ import StartPage from "./pages/StartPage/StartPage";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
 import RatingPage from "./pages/RatingPage/RatingPage";
 import Navbar from "./components/Navbar/Navbar";
+import UserNav from './components/UserNav/UserNav';
 
 import { Routes, Route } from "react-router-dom";
 
@@ -17,7 +18,11 @@ function App() {
 
   return (
     <>
-      {pathname === "/" || pathname === "/signup" || pathname === "/login" ? <MiniNav /> : <Navbar /> }
+      {pathname === "/" || pathname === "/signup" || pathname === "/login" ? <MiniNav /> : 
+      <>
+        <Navbar />
+        <UserNav />
+      </> }
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<StartPage />}></Route>

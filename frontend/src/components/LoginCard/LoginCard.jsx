@@ -33,8 +33,8 @@ export default function LoginCard() {
 
   return (
     <form id="loginCard" onSubmit={(e) => handleOnSubmit(e)}>
-      <input type="email" onChange={(e) => handleEmailChange(e)} placeholder="Your Email" value={email} required />
-      <input type="password" name="password" autoComplete="on" onChange={(e) => handlePasswordChange(e)} value={password} placeholder="Password" required />
+      <input type="email" className="form-input" onChange={(e) => handleEmailChange(e)} placeholder="Your Email" value={email} required />
+      <input type="password" className="form-input" name="password" autoComplete="on" onChange={(e) => handlePasswordChange(e)} value={password} placeholder="Password" required />
       <button type="submit" className="btn btn-sm btn-primary round-button bold">
         Log In
       </button>

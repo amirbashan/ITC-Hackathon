@@ -47,31 +47,25 @@ export default function RegisterCard() {
 
   return (
     <form id="registerCard" onSubmit={(e) => handleOnSubmit(e)}>
-      <input type="text" className="" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
-      <input type="email" className="" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
-      <input type="Password" className="" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
+      <input type="text" className="form-input" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
+      <input type="email" className="form-input" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
+      <input type="Password" className="form-input" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
       <input
         type="Password"
-        className=""
+        className="form-input"
         onChange={(e) => handlePassConfirmChange(e)}
         value={passConfirm}
         placeholder="Confirm Password"
         maxLength="250"
         required
       />
-      <input type="text" className="" onChange={(e) => handlePhoneChange(e)} value={phone} maxLength="20" placeholder="phone" required />
-      <div id="formControl">
+      <input type="text" className="form-input" onChange={(e) => handlePhoneChange(e)} value={phone} maxLength="20" placeholder="Phone Number" required />
         <div className="signup-line">
-          <p className="bold">Sign Up</p>
-          <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button">
-            Submit
+          <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button bold">
+            Sign Up
           </button>
           {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
         </div>
-        <div className="signin-line">
-          <p className="bold">Sign In</p>
-        </div>
-      </div>
     </form>
   );
 }
