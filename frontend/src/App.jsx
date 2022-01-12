@@ -7,6 +7,7 @@ import StartPage from "./pages/StartPage";
 import ResultsPage from "./pages/ResultsPage";
 import RatingPage from "./pages/RatingPage";
 import MyGoogleMap from "./components/MyGoogleMap";
+import MyGoogleMap2 from "./components/MyGoogleMap";
 
 import { Routes, Route } from "react-router-dom";
 
@@ -21,6 +22,8 @@ function App() {
         <Route path="/results" element={<ResultsPage />}></Route>
         <Route path="/rating" element={<RatingPage />}></Route>
         <Route path="/map" element={<MyGoogleMap />}></Route>
+        <Route path="/map2" element={<MyGoogleMap2 />}></Route>
+        <Route path="/requestSubmit" element={<MyGoogleMap />}></Route>
       </Routes>
     </>
   );
