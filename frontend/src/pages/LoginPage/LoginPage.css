@@ -1,0 +1,6 @@
+#loginPage {
+  margin-top: 5rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}

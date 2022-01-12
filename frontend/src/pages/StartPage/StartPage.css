@@ -4,6 +4,7 @@
   flex-direction: column;
   flex-grow: 1;
   align-items: center;
+  margin-top: 5rem;
 }
 
 .taxi-wrapper {
@@ -20,4 +21,5 @@
 
 .lower-navigation > p {
   font-size: 0.9rem;
+  cursor: pointer;
 }

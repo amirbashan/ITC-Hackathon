@@ -1,0 +1,41 @@
+.passenger,
+.duration,
+.price {
+  flex-grow: 1;
+}
+
+.passenger:first-child,
+.duration:first-child,
+.price:first-child {
+  margin: 0;
+}
+
+.ride-tile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.ride-info {
+  display: flex;
+  flex-basis: 100%;
+}
+
+.ride-tile {
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #f6f5f5;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.ride-save > p {
+  margin: 0;
+  color: #ffce54;
+}
+
+.ride-save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

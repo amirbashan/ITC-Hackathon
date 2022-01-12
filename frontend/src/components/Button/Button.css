@@ -8,4 +8,7 @@
   display: flex;
   justify-content: center;
   align-self: stretch;
+  cursor: pointer;
+  height: 50px;
+  font-size: 1rem;
 }
