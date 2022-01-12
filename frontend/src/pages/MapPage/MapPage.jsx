@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
-import MyGoogleMap from '../components/MyGoogleMap'
-import MyGoogleMap2 from '../components/mapEndpoint/MyGoogleMap2'
+import MyGoogleMap from '../../components/MyGoogleMap'
+import MyGoogleMap2 from '../../components/mapEndpoint/MyGoogleMap2'
+
 import { Button,Input } from "@chakra-ui/react";
 
 
