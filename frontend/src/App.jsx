@@ -8,6 +8,7 @@ import ResultsPage from "./pages/ResultsPage";
 import RatingPage from "./pages/RatingPage";
 import MyGoogleMap from "./components/MyGoogleMap";
 import MyGoogleMap2 from "./components/MyGoogleMap";
+import RideSubmission from "./components/mapEndpoint/RideSubmission"
 
 import { Routes, Route } from "react-router-dom";
 
@@ -23,7 +24,7 @@ function App() {
         <Route path="/rating" element={<RatingPage />}></Route>
         <Route path="/map" element={<MyGoogleMap />}></Route>
         <Route path="/map2" element={<MyGoogleMap2 />}></Route>
-        <Route path="/requestSubmit" element={<MyGoogleMap />}></Route>
+        <Route path="/requestSubmit" element={<RideSubmission />}></Route>
       </Routes>
     </>
   );
