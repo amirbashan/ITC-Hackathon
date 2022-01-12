@@ -7,7 +7,7 @@ import MapPage from "./pages/MapPage/MapPage";
 import StartPage from "./pages/StartPage/StartPage";
 import ResultsPage from "./pages/ResultsPage/ResultsPage";
 import RatingPage from "./pages/RatingPage/RatingPage";
-import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar"
 
 import { Routes, Route } from "react-router-dom";
 
@@ -20,9 +20,10 @@ function App() {
         <Route path="/" element={<StartPage />}></Route>
         <Route path="/signup" element={<RegisterPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
-        <Route path="/map" element={<MapPage />}></Route>
+        {/* <Route path="/map" element={<MapPage />}></Route> */}
         <Route path="/results" element={<ResultsPage />}></Route>
         <Route path="/rating" element={<RatingPage />}></Route>
+        <Route path="/map" element={<MapPage/>}></Route>
       </Routes>
     </>
   );
