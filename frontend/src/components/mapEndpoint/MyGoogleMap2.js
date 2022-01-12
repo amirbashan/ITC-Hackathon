@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 import AutoComplete from "./Autocomplete2";
 import Marker from "./Marker2";
+import MapContext from "../MapContext";
 
 const Wrapper = styled.main`
   width: 100%;
@@ -119,7 +120,11 @@ class MyGoogleMap extends Component {
       <div style={{ height: "100vh", width: "100vh" }}>
         {mapApiLoaded && (
           <div>
-            <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />
+            <AutoComplete
+              map={mapInstance}
+              mapApi={mapApi}
+              addplace={this.addPlace}
+            />
           </div>
         )}
         <GoogleMapReact
@@ -140,12 +145,17 @@ class MyGoogleMap extends Component {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
         >
-          <Marker text={this.state.address} lat={this.state.lat} lng={this.state.lng} />
+          <Marker
+            text={this.state.address}
+            lat={this.state.lat}
+            lng={this.state.lng}
+          />
         </GoogleMapReact>
 
         <div className="info-wrapper">
           <div className="map-details">
-            Latitude: <span>{this.state.lat}</span>, Longitude: <span>{this.state.lng}</span>
+            Latitude: <span>{this.state.lat}</span>, Longitude:{" "}
+            <span>{this.state.lng}</span>
           </div>
           <div className="map-details">
             Zoom: <span>{this.state.zoom}</span>
@@ -154,6 +164,9 @@ class MyGoogleMap extends Component {
             Address: <span>{this.state.address}</span>
           </div>
         </div>
+        <MapContext.Provider
+          value={{ latEnd: this.state.lat, lngEnd: this.state.lng }}
+        />
       </div>
     );
   }
