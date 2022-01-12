@@ -113,9 +113,10 @@ class MyGoogleMap extends Component {
 
   render() {
     const { places, mapApiLoaded, mapInstance, mapApi } = this.state;
-
+    console.log(this.state.lat);
+    console.log(this.state.lng);
     return (
-      <Wrapper>
+      <div style={{ height: "100vh", width: "100vh" }}>
         {mapApiLoaded && (
           <div>
             <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />
@@ -132,7 +133,8 @@ class MyGoogleMap extends Component {
           onChildClick={() => console.log("child click")}
           onClick={this._onClick}
           bootstrapURLKeys={{
-            key: "AIzaSyAM9uE4Sy2nWFfP-Ha6H8ZC6ghAMKJEKps",
+            key: "AIzaSyCljZ69bf6eNJUFkxFP60RxixCelSkD60I",
+            // key: "AIzaSyAM9uE4Sy2nWFfP-Ha6H8ZC6ghAMKJEKps",
             libraries: ["places", "geometry"],
           }}
           yesIWantToUseGoogleMapApiInternals
@@ -152,7 +154,7 @@ class MyGoogleMap extends Component {
             Address: <span>{this.state.address}</span>
           </div>
         </div>
-      </Wrapper>
+      </div>
     );
   }
 }
