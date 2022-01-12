@@ -11,12 +11,14 @@ export default function RegisterCard() {
       <Input type="text" placeholder="Phone Number"/>
       <Input type="password" placeholder="Password"/>
       <Input type="password" placeholder="Repeat Password"/>
-      <div className="signup-line">
-        <p className="bold">Sign Up</p>
-        <RoundButton/>
-      </div>
-      <div className="signin-line">
-        <p className="bold">Sign In</p>
+      <div id="formControl">
+        <div className="signup-line">
+          <p className="bold">Sign Up</p>
+          <RoundButton/>
+        </div>
+        <div className="signin-line">
+          <p className="bold">Sign In</p>
+        </div>
       </div>
     </form>
     </>
