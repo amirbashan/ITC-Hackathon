@@ -7,7 +7,6 @@ import styled from "styled-components";
 
 import AutoComplete from "./Autocomplete";
 import Marker from "./Marker";
-import MapContext from "./MapContext";
 
 const Wrapper = styled.main`
   width: 100%;
@@ -15,30 +14,39 @@ const Wrapper = styled.main`
 `;
 
 class MyGoogleMap extends Component {
-  state = {
-    mapApiLoaded: false,
-    mapInstance: null,
-    mapApi: null,
-    geoCoder: null,
-    places: [],
-    center: [],
-    zoom: 9,
-    address: "",
-    draggable: true,
-    lat: null,
-    lng: null,
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mapApiLoaded: false,
+      mapInstance: null,
+      mapApi: null,
+      geoCoder: null,
+      places: [],
+      center: [],
+      zoom: 9,
+      address: "",
+      draggable: true,
+      lat: null,
+      lng: null,
+    };
+  }
 
   componentWillMount() {
     this.setCurrentLocation();
   }
 
   onMarkerInteraction = (childKey, childProps, mouse) => {
+        let { setlatStart, setlngStart } = this.props;
+
     this.setState({
       draggable: false,
       lat: mouse.lat,
       lng: mouse.lng,
     });
+    setlatStart(mouse.lat)
+    setlngStart(mouse.lng)
+
   };
   onMarkerInteractionMouseUp = (childKey, childProps, mouse) => {
     this.setState({ draggable: true });
@@ -57,6 +65,9 @@ class MyGoogleMap extends Component {
       lat: value.lat,
       lng: value.lng,
     });
+    let { setlatStart, setlngStart } = this.props;
+    setlatStart(value.lat);
+    setlngStart(  value.lng)
   };
 
   apiHasLoaded = (map, maps) => {
@@ -70,11 +81,15 @@ class MyGoogleMap extends Component {
   };
 
   addPlace = (place) => {
+    let { setlatStart, setlngStart } = this.props;
+
     this.setState({
       places: [place],
       lat: place.geometry.location.lat(),
       lng: place.geometry.location.lng(),
     });
+    setlatStart(place.geometry.location.lat());
+    setlngStart(place.geometry.location.lng());
     this._generateAddress();
   };
 
@@ -83,24 +98,29 @@ class MyGoogleMap extends Component {
 
     const geocoder = new mapApi.Geocoder();
 
-    geocoder.geocode({ location: { lat: this.state.lat, lng: this.state.lng } }, (results, status) => {
-      console.log(results);
-      console.log(status);
-      if (status === "OK") {
-        if (results[0]) {
-          this.zoom = 12;
-          this.setState({ address: results[0].formatted_address });
+    geocoder.geocode(
+      { location: { lat: this.state.lat, lng: this.state.lng } },
+      (results, status) => {
+        console.log(results);
+        console.log(status);
+        if (status === "OK") {
+          if (results[0]) {
+            this.zoom = 12;
+            this.setState({ address: results[0].formatted_address });
+          } else {
+            window.alert("No results found");
+          }
         } else {
-          window.alert("No results found");
+          window.alert("Geocoder failed due to: " + status);
         }
-      } else {
-        window.alert("Geocoder failed due to: " + status);
       }
-    });
+    );
   }
 
   // Get Current Location Coordinates
   setCurrentLocation() {
+    let { setlatStart, setlngStart } = this.props;
+
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.setState({
@@ -108,6 +128,8 @@ class MyGoogleMap extends Component {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         });
+        setlatStart(position.coords.latitude);
+        setlatStart(position.coords.longitude);
       });
     }
   }
@@ -164,7 +186,6 @@ class MyGoogleMap extends Component {
             Address: <span>{this.state.address}</span>
           </div>
         </div>
-        <MapContext.Provider value={{latStart:this.state.lat,lngStart:this.state.lng}} />
       </div>
     );
   }
