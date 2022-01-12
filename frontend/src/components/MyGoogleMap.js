@@ -19,13 +19,16 @@ class MyGoogleMap extends Component {
     mapInstance: null,
     mapApi: null,
     geoCoder: null,
-    places: [],
+    placesStart: [],
+    placesEnd: [],
     center: [],
     zoom: 9,
     address: "",
     draggable: true,
-    lat: null,
-    lng: null,
+    latStart: null,
+    lngStart: null,
+    latEnd: null,
+    lngEnd: null,
   };
 
   componentWillMount() {
@@ -68,11 +71,19 @@ class MyGoogleMap extends Component {
     this._generateAddress();
   };
 
-  addPlace = (place) => {
+  addStartPlace = (place) => {
     this.setState({
-      places: [place],
-      lat: place.geometry.location.lat(),
-      lng: place.geometry.location.lng(),
+      placesStart: [place],
+      latStart: place.geometry.location.lat(),
+      lngStart: place.geometry.location.lng(),
+    });
+    this._generateAddress();
+  };
+  addEndPlace = (place) => {
+    this.setState({
+      placesEnd: [place],
+      latEnd: place.geometry.location.lat(),
+      lngEnd: place.geometry.location.lng(),
     });
     this._generateAddress();
   };
@@ -82,7 +93,7 @@ class MyGoogleMap extends Component {
 
     const geocoder = new mapApi.Geocoder();
 
-    geocoder.geocode({ location: { lat: this.state.lat, lng: this.state.lng } }, (results, status) => {
+    geocoder.geocode({ location: { lat: this.state.latStart, lng: this.state.lngStart } }, (results, status) => {
       console.log(results);
       console.log(status);
       if (status === "OK") {
@@ -113,14 +124,22 @@ class MyGoogleMap extends Component {
 
   render() {
     const { places, mapApiLoaded, mapInstance, mapApi } = this.state;
-    console.log(this.state.lat);
-    console.log(this.state.lng);
+    console.log(this.state.latStrat);
+    console.log(this.state.lngStart);
+    console.log(this.state.latEnd);
+    console.log(this.state.lngEnd);
     return (
       <div style={{ height: "100vh", width: "100vh" }}>
         {mapApiLoaded && (
+          <>
           <div>
-            <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addPlace} />
+            <h6>ride beginning</h6>
+            <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addStartPlace} />
           </div>
+          <div>
+            <h6>ride end</h6>
+            <AutoComplete map={mapInstance} mapApi={mapApi} addplace={this.addStartPlace} />
+          </div></>
         )}
         <GoogleMapReact
           center={this.state.center}
@@ -140,12 +159,12 @@ class MyGoogleMap extends Component {
           yesIWantToUseGoogleMapApiInternals
           onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
         >
-          <Marker text={this.state.address} lat={this.state.lat} lng={this.state.lng} />
+          <Marker text={this.state.address} lat={this.state.latStart} lng={this.state.lngEnd} />
         </GoogleMapReact>
 
         <div className="info-wrapper">
           <div className="map-details">
-            Latitude: <span>{this.state.lat}</span>, Longitude: <span>{this.state.lng}</span>
+            Latitude: <span>{this.state.latStart}</span>, Longitude: <span>{this.state.lngEnd}</span>
           </div>
           <div className="map-details">
             Zoom: <span>{this.state.zoom}</span>
