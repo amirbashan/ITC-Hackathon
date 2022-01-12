@@ -37,7 +37,7 @@ export default function RegisterCard() {
       setPassConfirm("");
       setPhone("");
       if (response.status === "success") {
-        navigate(`/login`);
+        navigate(`/map`);
         alert(response);
       }
     } catch (err) {
@@ -46,32 +46,32 @@ export default function RegisterCard() {
   };
 
   return (
-      <form id="registerCard" onSubmit={(e) => handleOnSubmit(e)}>
-        <input type="text" className="" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
-        <input type="email" className="" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
-        <input type="Password" className="" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
-        <input
-          type="Password"
-          className=""
-          onChange={(e) => handlePassConfirmChange(e)}
-          value={passConfirm}
-          placeholder="Confirm Password"
-          maxLength="250"
-          required
-        />
-        <input type="text" className="" onChange={(e) => handlePhoneChange(e)} value={phone} maxLength="20" placeholder="phone" required />
-        <div id="formControl">
-          <div className="signup-line">
-            <p className="bold">Sign Up</p>
-            <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button">
-              Submit
-            </button>
-            {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
-          </div>
-          <div className="signin-line">
-            <p className="bold">Sign In</p>
-          </div>
+    <form id="registerCard" onSubmit={(e) => handleOnSubmit(e)}>
+      <input type="text" className="" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
+      <input type="email" className="" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
+      <input type="Password" className="" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
+      <input
+        type="Password"
+        className=""
+        onChange={(e) => handlePassConfirmChange(e)}
+        value={passConfirm}
+        placeholder="Confirm Password"
+        maxLength="250"
+        required
+      />
+      <input type="text" className="" onChange={(e) => handlePhoneChange(e)} value={phone} maxLength="20" placeholder="phone" required />
+      <div id="formControl">
+        <div className="signup-line">
+          <p className="bold">Sign Up</p>
+          <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button">
+            Submit
+          </button>
+          {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
         </div>
-      </form>
+        <div className="signin-line">
+          <p className="bold">Sign In</p>
+        </div>
+      </div>
+    </form>
   );
 }
