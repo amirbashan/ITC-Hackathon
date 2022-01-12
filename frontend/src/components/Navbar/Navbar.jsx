@@ -1,12 +1,18 @@
-import React from 'react'
-import './Navbar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
-    return (
-        <div id="navbar">
-            <h1 id="navlogo" className="bold" >RIDE2GETHER</h1>
-        </div>
-    )
-}
+  return (
+    <div>
+      <div id="navbar">
+        <h1 id="navlogo" className="bold">
+          RIDE2GETHER
+        </h1>
+      </div>
 
-export default Navbar
+    </div>
+  );
+};
+
+export default Navbar;
