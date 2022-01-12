@@ -1,6 +1,6 @@
 import "./App.css";
 
-import MiniNav from "./components/MiniNav";
+import MiniNav from "./components/MiniNav/MiniNav";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import MapPage from "./pages/MapPage/MapPage";

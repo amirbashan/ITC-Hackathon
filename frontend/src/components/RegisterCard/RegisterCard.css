@@ -3,10 +3,10 @@
   flex-direction: column;
   padding: 1rem;
   margin-right: 1rem;
-  margin-left: 1rem;
   align-items: stretch;
   flex-grow: 1;
-  justify-content: space-evenly;
+  max-width: 600px;
+  width: 100%;
 }
 
 .signup-line {

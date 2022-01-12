@@ -46,7 +46,6 @@ export default function RegisterCard() {
   };
 
   return (
-    <>
       <form id="registerCard" onSubmit={(e) => handleOnSubmit(e)}>
         <input type="text" className="" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
         <input type="email" className="" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
@@ -64,7 +63,7 @@ export default function RegisterCard() {
         <div id="formControl">
           <div className="signup-line">
             <p className="bold">Sign Up</p>
-            <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary ">
+            <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button">
               Submit
             </button>
             {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
@@ -72,8 +71,7 @@ export default function RegisterCard() {
           <div className="signin-line">
             <p className="bold">Sign In</p>
           </div>
-        </div>
+        </div> */}
       </form>
-    </>
   );
 }
