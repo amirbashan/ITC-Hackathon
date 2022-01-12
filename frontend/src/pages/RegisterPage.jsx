@@ -1,9 +1,9 @@
 import React from 'react'
-
+import RegisterCard from '../components/RegisterCard/RegisterCard';
 const RegisterPage = () => {
     return (
         <>
-        Register Page
+            <RegisterCard />
         </>
     )
 }

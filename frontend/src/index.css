@@ -1,13 +1,60 @@
+html,
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+input {
+  font-size: 1rem;
+}
+
+input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-weight: 700;
+  font-size: 1rem;
+}
+input::-moz-placeholder {
+  /* Firefox 19+ */
+  font-weight: 700;
+  font-size: 1rem;
+}
+input:-ms-input-placeholder {
+  /* IE 10+ */
+  font-weight: 700;
+  font-size: 1rem;
+}
+input:-moz-placeholder {
+  /* Firefox 18- */
+  font-weight: 700;
+  font-size: 1rem;
 }

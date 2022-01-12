@@ -1,0 +1,24 @@
+#roundButton {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ffce54;
+  position: relative;
+  border: none;
+}
+
+#roundButton:hover {
+  cursor: pointer;
+}
+
+#roundButton:before {
+  content: "";
+  display: block;
+  border-top: solid 10px transparent;
+  border-left: solid 10px #fff;
+  border-bottom: solid 10px transparent;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -3px;
+}
