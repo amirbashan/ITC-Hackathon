@@ -6,12 +6,14 @@ import MapPage from './pages/MapPage';
 import StartPage from './pages/StartPage';
 import ResultsPage from './pages/ResultsPage';
 import RatingPage from './pages/RatingPage';
+import Navbar from './components/Navbar/Navbar';
 
 import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <> 
+      <Navbar/>
       <Routes>
         <Route path="/" element={<StartPage/>}></Route>
         <Route path="/signup" element={<RegisterPage />}></Route>

@@ -1,20 +1,22 @@
 import React, { useState } from "react";
 import axios from "axios";
-export const Context = React.createContext();
+export const UserContext = React.createContext();
 
-
+export const useUser = () => {
+  return React.useContext(React.UserContext);
+};
 
 const Store = ({ children }) => {
-    const [loginStatus, setloginStatus] = useState(true)
-  
+  const [loginStatus, setloginStatus] = useState(true);
+
   return (
-    <Context.Provider
+    <UserContext.Provider
       value={{
-        loginStatus
+        loginStatus,
       }}
     >
       {children}
-    </Context.Provider>
+    </UserContext.Provider>
   );
 };
 

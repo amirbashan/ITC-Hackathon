@@ -4,6 +4,7 @@ import RoundButton from '../RoundButton/RoundButton';
 
 export default function RegisterCard() {
   return (
+    <>
     <form id="registerCard">
       <Input type="text" placeholder="Full Name"/>
       <Input type="email" placeholder="Your Email" />
@@ -14,6 +15,10 @@ export default function RegisterCard() {
         <p className="bold">Sign Up</p>
         <RoundButton/>
       </div>
+      <div className="signin-line">
+        <p className="bold">Sign In</p>
+      </div>
     </form>
+    </>
   );
 }
