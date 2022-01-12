@@ -9,7 +9,7 @@ const MapPage = () => {
     const [showmap2, setshowmap2] = useState(false)
     const [latStart, setlatStart] = useState(null)
     const [lngStart, setlngStart] = useState(null)
-  const [rideRadius, setrideRadius] = useState(null);
+  const [rideTime, setrideTime] = useState(null);
     const [latEnd, setlatEnd] = useState(null)
     const [lngEnd, setlngEnd] = useState(null)
     function handleNext() {
@@ -18,7 +18,9 @@ const MapPage = () => {
     }
 
         function handleSubmit() {
-console.log(latStart,latEnd,lngStart,lngEnd, rideRadius)
+                  setshowmap2(false);
+
+console.log(latStart,latEnd,lngStart,lngEnd, rideTime)
         }
     return (
       <>
@@ -29,8 +31,12 @@ console.log(latStart,latEnd,lngStart,lngEnd, rideRadius)
           <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />
         )}
         {showmap1 && <Button onClick={handleNext}>next</Button>}
-        {showmap2 && <Button onClick={handleSubmit}>submit</Button>}
-        <Input placeholder="Choose distance radius" onChange={(event)=>setrideRadius(event.target.value)} />
+        {showmap2 && <Button onClick={handleSubmit}>next</Button>}
+       {!showmap1 && !showmap2 &&(
+                <>
+       <Input type="time" placeholder="Choose distance radius" />
+       <Button>Submit </Button>
+       </>)}
       </>
     );
 }
