@@ -54,3 +54,7 @@ input:-moz-placeholder {
   font-weight: 700;
   font-size: 1rem;
 }
+
+.gray {
+  color: #8e8e8e;
+}

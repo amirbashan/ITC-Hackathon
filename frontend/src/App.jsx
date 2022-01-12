@@ -1,11 +1,11 @@
 import './App.css';
 
-import LoginPage from "./pages/LoginPage";
-import RegisterPage from './pages/RegisterPage';
-import MapPage from './pages/MapPage';
-import StartPage from './pages/StartPage';
-import ResultsPage from './pages/ResultsPage';
-import RatingPage from './pages/RatingPage';
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import MapPage from './pages/MapPage/MapPage';
+import StartPage from './pages/StartPage/StartPage';
+import ResultsPage from './pages/ResultsPage/ResultsPage';
+import RatingPage from './pages/RatingPage/RatingPage';
 import Navbar from './components/Navbar/Navbar';
 
 import { Routes, Route } from "react-router-dom";
