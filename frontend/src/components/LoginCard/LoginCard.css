@@ -1,0 +1,17 @@
+#loginCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-left: 1rem;
+  align-items: stretch;
+  flex-grow: 1;
+}
+
+#formControl {
+  justify-self: flex-end;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

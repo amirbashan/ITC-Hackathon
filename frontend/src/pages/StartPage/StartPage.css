@@ -1,0 +1,23 @@
+#startPage {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+}
+
+.taxi-wrapper {
+  max-height: 200px;
+}
+
+.lower-navigation {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+.lower-navigation > p {
+  font-size: 0.9rem;
+}
