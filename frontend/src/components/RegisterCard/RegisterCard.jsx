@@ -42,17 +42,19 @@ export default function RegisterCard() {
   };
 
   return (
-    <>
       <form id="registerCard" onSubmit={(e) => handleOnSubmit(e)}>
         <Input type="text" onChange={(e) => handleNameChange(e)} value={name} placeholder="Name" maxLength="30" required />
         <Input type="email" onChange={(e) => handleEmailChange(e)} value={email} placeholder="Email Address" maxLength="100" required />
         <Input type="Password" onChange={(e) => handlePassChange(e)} value={password} placeholder="Password" maxLength="250" required />
         <Input type="Password" onChange={(e) => handlePassConfirmChange(e)} value={passConfirm} placeholder="Confirm Password" maxLength="250" required />
-        <Input type="text" onChange={(e) => handlePhoneChange(e)} value={phone} maxLength="20" required />
-        <div id="formControl">
+        <Input type="text" onChange={(e) => handlePhoneChange(e)} placeholder="Phone Number" value={phone} maxLength="20" required />
+                    <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button bold">
+              Sign Up
+            </button>
+        {/* <div id="formControl">
           <div className="signup-line">
             <p className="bold">Sign Up</p>
-            <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary ">
+            <button type="submit" disabled={password !== passConfirm} className="btn btn-sm btn-primary round-button">
               Submit
             </button>
             {password !== passConfirm && <span className="text-danger font-size-sm">Those passwords don't match</span>}
@@ -60,8 +62,7 @@ export default function RegisterCard() {
           <div className="signin-line">
             <p className="bold">Sign In</p>
           </div>
-        </div>
+        </div> */}
       </form>
-    </>
   );
 }

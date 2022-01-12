@@ -58,3 +58,16 @@ input:-moz-placeholder {
 .gray {
   color: #8e8e8e;
 }
+
+.round-button {
+  background-color: #ffce54;
+  color: #fff;
+  border: none;
+  text-decoration: none;
+  padding: 1rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1rem;
+}
