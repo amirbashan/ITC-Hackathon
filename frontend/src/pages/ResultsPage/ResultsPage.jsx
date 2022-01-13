@@ -26,7 +26,7 @@ const ResultsPage = (props) => {
     
     useEffect(() => {
      const initialResults=  getResults(1,lat,lng)
-     setResults(initialResults)
+     console.log(initialResults)
         
     }, [])
 
