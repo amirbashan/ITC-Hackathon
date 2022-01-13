@@ -102,8 +102,13 @@ const MapPage = () => {
             type="time"
             placeholder="Choose ride time "
             sx={{
-              fontSize: "130px",
-              height: "200px"
+              '@media only screen and (max-width: 450px)':{
+                fontSize:"60px",
+                height:"100px"
+              },
+              fontSize: "100px",
+              height: "200px",
+              textAlign:"center"
             }}
             onChange={(event) => {
               setrideTime(event.target.value);
