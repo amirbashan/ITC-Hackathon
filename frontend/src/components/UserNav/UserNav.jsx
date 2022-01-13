@@ -10,7 +10,7 @@ const UserNav = () => {
     }
     return (
         <div id="userNav">
-            <BurgerSvg onClick={() => {handleDropdown()}}/>
+            <BurgerSvg className="pointer" onClick={() => {handleDropdown()}}/>
             {
             dropdown &&
                 <>
