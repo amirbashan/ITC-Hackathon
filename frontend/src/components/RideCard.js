@@ -67,6 +67,12 @@ export default function RideCard({ ride, isConstantSize = false }) {
           <Typography color="text.secondary" gutterBottom>
             Ride Status: {rideStatusMap[ride.status]}
           </Typography>
+          <Typography color="text.secondary" gutterBottom>
+            Price Alone: {ride.priceAlone || "N/A"}
+          </Typography>
+          <Typography color="text.secondary" gutterBottom>
+            Price Split: {(ride.priceSplit + 2) / 2 || "N/A"}
+          </Typography>
         </CardContent>
         <CardActions disableSpacing>
           <ExpandMore
