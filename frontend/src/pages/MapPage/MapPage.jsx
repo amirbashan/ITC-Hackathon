@@ -40,9 +40,15 @@ const MapPage = () => {
     if (res) {
       console.log(res);
       //   alert("you succusfully posted a ride!");
-      navigate(`/results`);
+      navigate( {pathname: '/results',
+      search: `?lat=${latStart}&lng=${lngEnd}`})
       console.log(rideData);
     }
+     navigate({
+       pathname: "/results",
+       search: `?lat=${latStart}&lng=${lngEnd}`,
+     });
+     console.log(rideData);
   }
   return (
     <div id="mapPage">
