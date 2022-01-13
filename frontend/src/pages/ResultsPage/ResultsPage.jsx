@@ -1,11 +1,19 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,} from 'react'
+import { useLocation,useParams } from 'react-router-dom';
 import './ResultsPage.css';
 import RideTile from '../../components/RideTile/RideTile';
 import Button from '../../components/Button/Button';
 import axios from 'axios' 
-const ResultsPage = (props) => {
+const ResultsPage = () => {
 
-    const {lat,lng}=props
+const queryString = useLocation().search
+const params=queryString.split("&").map((param)=>param.split("="))
+
+// const {lat}=useParams();
+console.log(params);
+
+const lat = params[0][1];
+const lng=params[1][1]
     const [results, setResults] = useState(null)
     const [loading, setLoading] = useState(false)
     useState()

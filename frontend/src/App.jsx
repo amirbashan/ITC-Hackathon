@@ -13,6 +13,7 @@ import UserNav from "./components/UserNav/UserNav";
 import ProfilePage from "./pages/ProfilePage";
 
 import { Routes, Route } from "react-router-dom";
+import RidesPage from "./pages/RidesPage/RidesPage";
 
 function App() {
   const { pathname } = useLocation();

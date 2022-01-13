@@ -33,21 +33,31 @@ const MapPage = () => {
   async function handlePost() {
     const rideData = {
       rideTime: rideTime,
-      pickUp: { coordinates: [latStart, lngStart] },
-      dropOff: { coordinates: [latEnd, lngEnd] },
+      pickUp: { coordinates: [lngStart, latStart] },
+      dropOff: { coordinates: [lngEnd, latEnd] },
     };
 
     const res = await postRide(rideData);
     if (res) {
       console.log(res);
       //   alert("you succusfully posted a ride!");
-      navigate(`/results/`);
+      navigate({
+        pathname: "/results",
+        search: `?lat=${latStart}&lng=${lngEnd}`,
+      });
       console.log(rideData);
     }
+    navigate({
+      pathname: "/results",
+      search: `?lat=${latStart}&lng=${lngEnd}`,
+    });
+    console.log(rideData);
   }
   return (
     <div id="mapPage">
-      {showmap1 && <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
+      {showmap1 && (
+        <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />
+      )}
       {showmap2 && <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />}
       {showmap1 && (
         <div className="next-container">
@@ -103,49 +113,56 @@ const MapPage = () => {
             type="time"
             placeholder="Choose ride time "
             sx={{
-              '@media only screen and (max-width: 450px)':{
-                fontSize:"60px",
-                height:"100px"
+              "@media only screen and (max-width: 450px)": {
+                fontSize: "60px",
+                height: "100px",
               },
               fontSize: "100px",
               height: "200px",
-              textAlign:"center"
+              textAlign: "center",
             }}
             onChange={(event) => {
               setrideTime(event.target.value);
             }}
           />
-          <Button 
-                    sx={{
-            backgroundColor: "#ffce54",
-            color: "#fff",
-            border: "none",
-            textDecoration: "none",
-            padding: "1rem",
-            borderRadius: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            cursor: "pointer",
-            fontSize: "1rem",
-            flexGrow:1,
-            fontWeight:700
-          }}
-          onClick={handleSubmit}>Just Search</Button>
-          <Button 
-                    sx={{
-            backgroundColor: "#ffce54",
-            color: "#fff",
-            border: "none",
-            textDecoration: "none",
-            padding: "1rem",
-            borderRadius: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            cursor: "pointer",
-            fontSize: "1rem",
-            flexGrow:1,
-            fontWeight:700
-          }}onClick={handlePost}>Post my ride for matches</Button>
+          <Button
+            sx={{
+              backgroundColor: "#ffce54",
+              color: "#fff",
+              border: "none",
+              textDecoration: "none",
+              padding: "1rem",
+              borderRadius: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              cursor: "pointer",
+              fontSize: "1rem",
+              flexGrow: 1,
+              fontWeight: 700,
+            }}
+            onClick={handleSubmit}
+          >
+            Just Search
+          </Button>
+          <Button
+            sx={{
+              backgroundColor: "#ffce54",
+              color: "#fff",
+              border: "none",
+              textDecoration: "none",
+              padding: "1rem",
+              borderRadius: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              cursor: "pointer",
+              fontSize: "1rem",
+              flexGrow: 1,
+              fontWeight: 700,
+            }}
+            onClick={handlePost}
+          >
+            Post my ride for matches
+          </Button>
         </div>
       )}
     </div>
