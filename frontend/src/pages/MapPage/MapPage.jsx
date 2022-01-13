@@ -7,8 +7,6 @@ import { postRide } from "../../lib/AllDB";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-
-
 const MapPage = () => {
   const { user } = useAuthContext();
   const navigate = useNavigate();
@@ -38,62 +36,65 @@ const MapPage = () => {
       pickUp: { coordinates: [latStart, lngStart] },
       dropOff: { coordinates: [latEnd, lngEnd] },
     };
+
     const res = await postRide(rideData);
     if (res) {
       console.log(res);
       //   alert("you succusfully posted a ride!");
-      navigate(`/results`);
+      navigate(`/results/`);
       console.log(rideData);
     }
   }
   return (
     <div id="mapPage">
-      {showmap1 && 
-      <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
+      {showmap1 && <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
       {showmap2 && <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />}
-      {showmap1 && 
+      {showmap1 && (
         <div className="next-container">
-          <Button 
-          sx={{
-          backgroundColor: "#ffce54",
-          color: "#fff",
-          border: "none",
-          textDecoration: "none",
-          padding: "1rem",
-          borderRadius: "1rem",
-          display: "flex",
-          justifyContent: "center",
-          cursor: "pointer",
-          fontSize: "1rem",
-          flexGrow:1,
-          fontWeight:700
-          }}
-          onClick={handleNext}>Next</Button>
+          <Button
+            sx={{
+              backgroundColor: "#ffce54",
+              color: "#fff",
+              border: "none",
+              textDecoration: "none",
+              padding: "1rem",
+              borderRadius: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              cursor: "pointer",
+              fontSize: "1rem",
+              flexGrow: 1,
+              fontWeight: 700,
+            }}
+            onClick={handleNext}
+          >
+            Next
+          </Button>
         </div>
-      }
+      )}
       {showmap2 && (
         <div className="next-container">
-        <Button
-          onClick={() => {
-            setshowmap2(false);
-          }}
-          sx={{
-            backgroundColor: "#ffce54",
-            color: "#fff",
-            border: "none",
-            textDecoration: "none",
-            padding: "1rem",
-            borderRadius: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            cursor: "pointer",
-            fontSize: "1rem",
-            flexGrow:1,
-            fontWeight:700
-          }}
-        >
-          Next
-        </Button>
+          <Button
+            onClick={() => {
+              setshowmap2(false);
+            }}
+            sx={{
+              backgroundColor: "#ffce54",
+              color: "#fff",
+              border: "none",
+              textDecoration: "none",
+              padding: "1rem",
+              borderRadius: "1rem",
+              display: "flex",
+              justifyContent: "center",
+              cursor: "pointer",
+              fontSize: "1rem",
+              flexGrow: 1,
+              fontWeight: 700,
+            }}
+          >
+            Next
+          </Button>
         </div>
       )}
       {!showmap1 && !showmap2 && (
