@@ -62,7 +62,7 @@ const MapPage = () => {
     }
     navigate({
       pathname: "/results",
-      search: `?lat=${latStart}&lng=${lngEnd}&latEnd=${latEnd}&lngEnd=${lngEnd}`,
+      search: `?lat=${latStart}&lng=${lngStart}&latEnd=${latEnd}&lngEnd=${lngEnd}`,
     });
     console.log(rideData);
   }
