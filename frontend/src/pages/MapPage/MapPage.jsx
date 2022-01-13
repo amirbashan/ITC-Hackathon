@@ -6,6 +6,8 @@ import "./MapPage.css";
 import { postRide } from "../../lib/AllDB";
 import { useNavigate } from "react-router-dom";
 
+
+
 const MapPage = () => {
   const navigate = useNavigate();
   const [showmap1, setshowmap1] = useState(true);
@@ -40,17 +42,53 @@ const MapPage = () => {
   }
   return (
     <div id="mapPage">
-      {showmap1 && <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
+      {showmap1 && 
+      <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
       {showmap2 && <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />}
-      {showmap1 && <Button onClick={handleNext}>next</Button>}
+      {showmap1 && 
+        <div className="next-container">
+          <Button 
+          sx={{
+          backgroundColor: "#ffce54",
+          color: "#fff",
+          border: "none",
+          textDecoration: "none",
+          padding: "1rem",
+          borderRadius: "1rem",
+          display: "flex",
+          justifyContent: "center",
+          cursor: "pointer",
+          fontSize: "1rem",
+          flexGrow:1,
+          fontWeight:700
+          }}
+          onClick={handleNext}>Next</Button>
+        </div>
+      }
       {showmap2 && (
+        <div className="next-container">
         <Button
           onClick={() => {
             setshowmap2(false);
           }}
+          sx={{
+            backgroundColor: "#ffce54",
+            color: "#fff",
+            border: "none",
+            textDecoration: "none",
+            padding: "1rem",
+            borderRadius: "1rem",
+            display: "flex",
+            justifyContent: "center",
+            cursor: "pointer",
+            fontSize: "1rem",
+            flexGrow:1,
+            fontWeight:700
+          }}
         >
-          next
+          Next
         </Button>
+        </div>
       )}
       {!showmap1 && !showmap2 && (
         <>
