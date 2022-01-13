@@ -24,6 +24,24 @@ export const loginUser = (user) => {
     .catch((error) => alert(error.response.data));
 };
 
+export const fetchUserRides = () => {
+  return axios
+    .get(`${URL}${version}/rides/myrides`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => alert(error.response.data));
+};
+
+export const fetchRequestsOfOneRide = (rideId) => {
+  return axios
+    .get(`${URL}${version}/requests/rides/${rideId}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => alert(error.response.data));
+};
+
 // export const getBasicUserInfo = (token) => {
 //   return axios
 
@@ -47,7 +65,6 @@ export const getOneUserInfo = () => {
 
 export const postRide = () => {
   return axios
-
     .post(`${URL}${version}/rides/`)
     .then((response) => {
       return response.data;

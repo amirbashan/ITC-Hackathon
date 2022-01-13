@@ -1,9 +1,9 @@
-import React, {useState} from 'react'
-import './UserNav.css';
+import React, { useState } from "react";
+import "./UserNav.css";
 import { Outlet, Link } from "react-router-dom";
 import { ReactComponent as BurgerSvg } from "../../assets/burger.svg";
 const UserNav = () => {
-    const [dropdown, setDropdown] = useState(false)
+  const [dropdown, setDropdown] = useState(false);
 
     const handleDropdown = () => {
         setDropdown(!dropdown)
@@ -30,4 +30,4 @@ const UserNav = () => {
     )
 }
 
-export default UserNav
+export default UserNav;
