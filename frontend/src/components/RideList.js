@@ -8,7 +8,7 @@ export default function RideList({ rides }) {
   return (
     <>
       {rides?.length === 0 && (
-        <Alert severity="warning">No rides to display :(</Alert>
+        <Alert severity="warning">No rides to display : </Alert>
       )}
       {rides && (
         <Container sx={{ py: 8 }}>
