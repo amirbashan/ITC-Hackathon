@@ -128,7 +128,7 @@ class MyGoogleMap extends Component {
           lng: position.coords.longitude,
         });
         setlatStart(position.coords.latitude);
-        setlatStart(position.coords.longitude);
+        setlngStart(position.coords.longitude);
       });
     }
   }

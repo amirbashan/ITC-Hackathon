@@ -43,13 +43,13 @@ const MapPage = () => {
       //   alert("you succusfully posted a ride!");
       navigate({
         pathname: "/results",
-        search: `?lat=${latStart}&lng=${lngEnd}`,
+        search: `?lat=${latStart}&lng=${lngStart}&latEnd=${latEnd}&lngEnd=${lngEnd}`,
       });
       console.log(rideData);
     }
     navigate({
       pathname: "/results",
-      search: `?lat=${latStart}&lng=${lngEnd}`,
+      search: `?lat=${latStart}&lng=${lngStart}&latEnd=${latEnd}&lngEnd=${lngEnd}`,
     });
     console.log(rideData);
   }
