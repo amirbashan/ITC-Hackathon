@@ -1,10 +1,8 @@
-import React from 'react'
-import './Input.css';
+import React from "react";
+import "./Input.css";
 
-const Input = ({change,value,type,placeholder}) => {
-    return (
-        <input className="forminput" type={type} placeholder={placeholder} onChange={(e) => change(e.target.value)} />
-    )
-}
+const Input = ({ onChange, value, type, placeholder }) => {
+  return <input className="form-input" type={type} placeholder={placeholder} onChange={(e) => onChange(e.target.value)} />;
+};
 
-export default Input
+export default Input;

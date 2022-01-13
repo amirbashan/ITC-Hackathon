@@ -47,6 +47,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: "",
   },
+<<<<<<< HEAD
+=======
+  rating: {
+    type: Array,
+    default: "",
+  },
+>>>>>>> 47875cd35ed09c27382313c30aa5f27652654807
   passwordChangedAt: {
     type: Date,
   },
@@ -81,19 +88,27 @@ userSchema.pre("save", function (next) {
   next();
 });
 
+<<<<<<< HEAD
 userSchema.methods.correctPassword = async function (
   candidatePassword,
   userPassword
 ) {
+=======
+userSchema.methods.correctPassword = async function (candidatePassword, userPassword) {
+>>>>>>> 47875cd35ed09c27382313c30aa5f27652654807
   return await bcrypt.compare(candidatePassword, userPassword);
 };
 
 userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
   if (this.passwordChangedAt) {
+<<<<<<< HEAD
     const changedTimeStamp = parseInt(
       this.passwordChangedAt.getTime() / 1000,
       10
     );
+=======
+    const changedTimeStamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10);
+>>>>>>> 47875cd35ed09c27382313c30aa5f27652654807
     return JWTTimestamp < changedTimeStamp;
   }
   return false;
@@ -102,10 +117,14 @@ userSchema.methods.changedPasswordAfter = function (JWTTimestamp) {
 userSchema.methods.createPasswordResetToken = function () {
   const resetToken = crypto.randomBytes(32).toString("hex");
 
+<<<<<<< HEAD
   this.passwordResetToken = crypto
     .createHash("sha256")
     .update(resetToken)
     .digest("hex");
+=======
+  this.passwordResetToken = crypto.createHash("sha256").update(resetToken).digest("hex");
+>>>>>>> 47875cd35ed09c27382313c30aa5f27652654807
 
   this.passwordResetExpires = Date.now() + 10 * 60 * 1000;
 
