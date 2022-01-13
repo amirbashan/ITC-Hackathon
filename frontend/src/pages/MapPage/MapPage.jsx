@@ -137,18 +137,20 @@ const MapPage = () => {
               setrideTime(event.target.value);
             }}
           />
-          <input type="number" onChange={(e) => setDay(e.target.value)} value={day} placeholder="Min" className="form-control" min="1" max="31" required />
-          <input type="number" onChange={(e) => setMonth(e.target.value)} value={month} placeholder="Min" className="form-control" min="1" max="12" required />
-          <input
-            type="number"
-            onChange={(e) => setYear(e.target.value)}
-            value={year}
-            placeholder="Min"
-            className="form-control"
-            min="2022"
-            max="2027"
-            required
-          />
+          <div className="date-container">
+              <input type="number" onChange={(e) => setDay(e.target.value)} value={day} placeholder="Day" className="form-control select-input " min="1" max="31" required />
+              <input type="number" onChange={(e) => setMonth(e.target.value)} value={month} placeholder="Month" className="form-control select-input" min="1" max="12" required />
+              <input
+                type="number"
+                onChange={(e) => setYear(e.target.value)}
+                value={year}
+                placeholder="Year"
+                className="form-control select-input"
+                min="2022"
+                max="2027"
+                required
+              />
+            </div>
 
           <Button
             sx={{
