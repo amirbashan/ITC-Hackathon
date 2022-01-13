@@ -3,11 +3,14 @@ import { useNavigate } from "react-router-dom";
 import { getOneUserInfo, editUserInfo } from "../lib/AllDB";
 import Form from "react-bootstrap/Form";
 import { useAuthContext } from "../hooks/useAuthContext";
+import Avatar from '@mui/material/Avatar';
+import userImage from '../assets/user.png';
 
 export default function ProfilePage() {
   const { user } = useAuthContext();
   const navigate = useNavigate();
 
+  console.log(user)
   const [name, setName] = useState(user.name);
   const [email, setEmail] = useState(user.email);
   const [role, setRole] = useState(user.role);
@@ -57,6 +60,7 @@ export default function ProfilePage() {
   return (
     <div className="d-flex flex-column justify-content-center profile-page-container">
       <h1 className="m-auto">Profile page</h1>
+      <Avatar sx={{width:"100px",height:"100px"}} alt={user.name} src={userImage}/>
       <form className="d-flex m-auto my-3 w-75 profile-form desktop-wrapper width-100" onSubmit={(e) => handleOnSubmit(e)}>
         <div className="col d-flex flex-wrap align-items-end">
           <label className="bold profile-label">Role</label>

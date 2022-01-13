@@ -14,13 +14,14 @@ const UserNav = () => {
             {
             dropdown &&
                 <>
-                <Link to="/map" className="px-4 nav-link bold" >
+                <Link onClick={() => {handleDropdown()}}
+                to="/map" className="px-4 nav-link bold" >
                     Search a ride
                 </Link>
-                <Link to="/profile" className="px-4 nav-link bold" >
+                <Link onClick={() => {handleDropdown()}}to="/profile" className="px-4 nav-link bold" >
                     User Profile
                 </Link>
-                <Link to="/rides" className="px-2 nav-link bold">
+                <Link onClick={() => {handleDropdown()}}to="/rides" className="px-2 nav-link bold">
                     My Rides
                 </Link>
                 </>
