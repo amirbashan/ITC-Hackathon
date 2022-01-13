@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { getOneUserInfo, editUserInfo } from "../lib/AllDB";
-// import Form from "react-bootstrap/Form";
+import Form from "react-bootstrap/Form";
 
 export default function ProfilePage() {
   const navigate = useNavigate();

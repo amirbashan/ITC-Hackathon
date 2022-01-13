@@ -23,7 +23,7 @@ const MapPage = () => {
   function handleSubmit() {
     const rideData = {
       rideTime: rideTime,
-      pickUp: { coordinates: [latStart, lngStart] },
+      pickUp: { coordinates:git  [latStart, lngStart] },
       dropOff: { coordinates: [latEnd, lngEnd] },
     };
     console.log(rideData);
