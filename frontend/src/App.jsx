@@ -30,15 +30,14 @@ function App() {
           <UserNav />
         </>
       )}
-      {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<StartPage />}></Route>
         <Route path="/signup" element={<RegisterPage />}></Route>
         <Route path="/login" element={<LoginPage />}></Route>
+        <Route path="/map" element={<MapPage />}></Route>
         <Route path="/results" element={<ResultsPage />}></Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
         <Route path="/rating" element={<RatingPage />}></Route>
-        <Route path="/map" element={<MapPage />}></Route>
       </Routes>
     </>
   );
