@@ -13,7 +13,8 @@ const params=queryString.split("&").map((param)=>param.split("="))
 console.log(params);
 
 const lat = params[0][1];
-const lng=params[1][1]
+const lng=params[1][1];
+
     const [results, setResults] = useState(null)
     const [loading, setLoading] = useState(false)
     useState()
