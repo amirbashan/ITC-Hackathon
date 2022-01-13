@@ -24,7 +24,10 @@ class AutoComplete extends Component {
       // restrict your search to a specific country, or an array of countries
       // componentRestrictions: { country: ['gb', 'us'] },
     };
-    this.autoComplete = new mapApi.places.Autocomplete(this.searchInput, options);
+    this.autoComplete = new mapApi.places.Autocomplete(
+      this.searchInput,
+      options
+    );
     this.autoComplete.addListener("place_changed", this.onPlaceChanged);
     this.autoComplete.bindTo("bounds", map);
   }
@@ -62,7 +65,7 @@ class AutoComplete extends Component {
           }}
           type="text"
           onFocus={this.clearSearchBox}
-          placeholder="Enter a location"
+          placeholder="Enter drop-off location"
         />
       </Wrapper>
     );

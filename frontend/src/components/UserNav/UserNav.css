@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
+  border-bottom: 2px solid #000;
 }
 
 #userNav > a:hover {
@@ -17,4 +18,8 @@
   padding: 0.5rem;
   text-decoration: none;
   color: #000;
+}
+
+.pointer {
+  cursor: pointer;
 }

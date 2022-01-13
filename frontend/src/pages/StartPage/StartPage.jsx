@@ -11,16 +11,18 @@ const StartPage = () => {
 
   return (
     <div id="startPage">
+      <div className="desktop-wrapper">
       <TaxiSvg className="taxi-wrapper" />
       <p className="bold">
         Our application allows you to save money by sharing your cab with someone near you. We’ve helped over 643 people and saved over 321,489$
       </p>
       <div className="lower-navigation">
         {/* <Button onClick={handleClick} text="Continue to sign up" /> */}
-        <Link to="/signup" className="lower-navigation">
-          Sign-up / Log-in
+        <Link to="/signup"                      className="round-button">
+          Continue to sign up
         </Link>
         <p className="bold gray">Join now and start saving from the first ride.</p>
+      </div>
       </div>
     </div>
   );

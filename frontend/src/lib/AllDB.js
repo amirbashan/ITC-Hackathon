@@ -3,6 +3,8 @@ import axios from "axios";
 const URL = `https://ride2gether-api.herokuapp.com`;
 const version = `/api/v1`;
 
+axios.defaults.withCredentials = true;
+
 export const signUpUser = (user) => {
   return axios
     .post(`${URL}${version}/users/signup`, user)
@@ -35,8 +37,9 @@ export const loginUser = (user) => {
 export const getOneUserInfo = () => {
   return axios
 
-    .get(`${URL}${version}/users/`)
+    .get(`${URL}${version}/users/me`)
     .then((response) => {
+      console.log("response", response);
       return response.data;
     })
     .catch((error) => alert(error.response));
