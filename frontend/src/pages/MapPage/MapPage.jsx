@@ -98,17 +98,55 @@ const MapPage = () => {
         </div>
       )}
       {!showmap1 && !showmap2 && (
-        <>
+        <div className="timer-container desktop-wrapper center-margins">
           <Input
             type="time"
             placeholder="Choose ride time "
+            sx={{
+              '@media only screen and (max-width: 450px)':{
+                fontSize:"60px",
+                height:"100px"
+              },
+              fontSize: "100px",
+              height: "200px",
+              textAlign:"center"
+            }}
             onChange={(event) => {
               setrideTime(event.target.value);
             }}
           />
-          <Button onClick={handleSubmit}>Just Search</Button>
-          <Button onClick={handlePost}>Post my rid for matches</Button>
-        </>
+          <Button 
+                    sx={{
+            backgroundColor: "#ffce54",
+            color: "#fff",
+            border: "none",
+            textDecoration: "none",
+            padding: "1rem",
+            borderRadius: "1rem",
+            display: "flex",
+            justifyContent: "center",
+            cursor: "pointer",
+            fontSize: "1rem",
+            flexGrow:1,
+            fontWeight:700
+          }}
+          onClick={handleSubmit}>Just Search</Button>
+          <Button 
+                    sx={{
+            backgroundColor: "#ffce54",
+            color: "#fff",
+            border: "none",
+            textDecoration: "none",
+            padding: "1rem",
+            borderRadius: "1rem",
+            display: "flex",
+            justifyContent: "center",
+            cursor: "pointer",
+            fontSize: "1rem",
+            flexGrow:1,
+            fontWeight:700
+          }}onClick={handlePost}>Post my ride for matches</Button>
+        </div>
       )}
     </div>
   );
