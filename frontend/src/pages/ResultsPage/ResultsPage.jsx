@@ -25,8 +25,8 @@ const ResultsPage = () => {
       const data = await axios.get(
         `https://ride2gether-api.herokuapp.com/api/v1/rides/rides-within/${radius}/center/${lat},${lng}/end/${latEnd},${lngEnd}/unit/km`
       );
-      setResults(data.data);
-      console.log(results);
+      setResults(data.data.data.data);
+      console.log(data.data.data.data);
     } catch (e) {
       console.log(e);
     } finally {
@@ -46,7 +46,12 @@ const ResultsPage = () => {
           {results &&
             results.length > 0 &&
             results.map((ride) => {
-              return <RideTile key={ride._id} name={ride.createdBy} />;
+              return <RideTile 
+              key={ride._id} 
+              name={ride.createdBy}
+              price={"129"}
+              duration={"1h20m"}
+               />;
             })}
         </div>
       </div>
