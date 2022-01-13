@@ -39,6 +39,7 @@ function App() {
         <Route path="/results" element={<ResultsPage />}></Route>
         <Route path="/profile" element={<ProfilePage />}></Route>
         <Route path="/rating" element={<RatingPage />}></Route>
+        <Route path="/rides" element={<RidesPage />}></Route>
       </Routes>
     </>
   );
