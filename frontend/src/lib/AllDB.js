@@ -63,10 +63,11 @@ export const getOneUserInfo = () => {
     .catch((error) => alert(error.response));
 };
 
-export const postRide = () => {
+export const postRide = (rideData) => {
   return axios
-    .post(`${URL}${version}/rides/`)
+    .post(`${URL}${version}/rides`, rideData)
     .then((response) => {
+      console.log(response);
       return response.data;
     })
     .catch((error) => alert(error.response));
