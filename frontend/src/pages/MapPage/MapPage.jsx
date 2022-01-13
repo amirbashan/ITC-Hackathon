@@ -5,10 +5,12 @@ import { Button, Input } from "@chakra-ui/react";
 import "./MapPage.css";
 import { postRide } from "../../lib/AllDB";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 
 
 const MapPage = () => {
+  const { user } = useAuthContext();
   const navigate = useNavigate();
   const [showmap1, setshowmap1] = useState(true);
   const [showmap2, setshowmap2] = useState(false);
@@ -30,15 +32,19 @@ const MapPage = () => {
     };
     console.log(rideData);
   }
-  function handlePost() {
+  async function handlePost() {
     const rideData = {
       rideTime: rideTime,
       pickUp: { coordinates: [latStart, lngStart] },
       dropOff: { coordinates: [latEnd, lngEnd] },
     };
-    // postRide(rideData);
-    navigate(`/results`);
-    console.log(rideData);
+    const res = await postRide(rideData);
+    if (res) {
+      console.log(res);
+      //   alert("you succusfully posted a ride!");
+      navigate(`/results`);
+      console.log(rideData);
+    }
   }
   return (
     <div id="mapPage">
@@ -99,8 +105,8 @@ const MapPage = () => {
               setrideTime(event.target.value);
             }}
           />
-          <Button onClick={handleSubmit}>Search for similar </Button>
-          <Button onClick={handlePost}>Post my rid for matches </Button>
+          <Button onClick={handleSubmit}>Just Search</Button>
+          <Button onClick={handlePost}>Post my rid for matches</Button>
         </>
       )}
     </div>
