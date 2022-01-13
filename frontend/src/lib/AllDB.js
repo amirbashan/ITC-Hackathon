@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const URL = `https://ride2gether-api.herokuapp.com/api/v1`;
+const URL = `https://ride2gether-api.herokuapp.com`;
+const version = `/api/v1`;
 
 export const signUpUser = (user) => {
   return axios
-    .post(`${URL}/users/signup`, user)
+    .post(`${URL}${version}/users/signup`, user)
     .then((response) => {
       return response.data;
     })
@@ -14,7 +15,7 @@ export const signUpUser = (user) => {
 export const loginUser = (user) => {
   console.log(user);
   return axios
-    .post(`${URL}/users/login`, user)
+    .post(`${URL}${version}/users/login`, user)
     .then((response) => {
       return response.data;
     })
@@ -34,7 +35,17 @@ export const loginUser = (user) => {
 export const getOneUserInfo = () => {
   return axios
 
-    .get(`${URL}/users/`)
+    .get(`${URL}${version}/users/`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => alert(error.response));
+};
+
+export const postRide = () => {
+  return axios
+
+    .get(`${URL}${version}/ride/`)
     .then((response) => {
       return response.data;
     })
