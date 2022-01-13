@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchrequests } from "../lib/AllDB";
+import { fetchrequests, fetchRequestsOfOneRide } from "../lib/AllDB";
 
 export default function useRideRequests(rideId) {
   const [requests, setRequests] = useState(null);

@@ -45,8 +45,8 @@ export default function RequestCard({ ride, isConstantSize = false }) {
         <CardHeader
           //   avatar={petIconMap[pet.type]}
 
-          title={"hello"}
-          subheader={"Hello 2"}
+          title={ride?.joinerId?.name}
+          subheader={ride?.joinerId?.email}
         />
         <CardContent>
           <Typography color="text.secondary" gutterBottom>
@@ -64,41 +64,44 @@ export default function RequestCard({ ride, isConstantSize = false }) {
             Ride Status: {rideStatusMap[ride.status]}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
-          <ExpandMore
-            expand={expanded}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleExpandClick();
-            }}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        </CardActions>
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Grid container spacing={2}>
-              <div>hello</div>
-              {/* {infoItems.map((element, index) => {
-                return (
-                  <Grid item display={"flex"} key={index} xs={6}>
-                    {infoIcons[index]}
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mr: 2 }}
-                    >
-                      {element || "N/A"}
-                    </Typography>
-                  </Grid>
-                );
-              })} */}
-            </Grid>
-          </CardContent>
-        </Collapse>
       </Card>
     </Grid>
   );
 }
+
+{
+  /* <CardActions disableSpacing>
+<ExpandMore
+  expand={expanded}
+  onClick={(e) => {
+    e.stopPropagation();
+    handleExpandClick();
+  }}
+  aria-expanded={expanded}
+  aria-label="show more"
+>
+  <ExpandMoreIcon />
+</ExpandMore>
+</CardActions>
+<Collapse in={expanded} timeout="auto" unmountOnExit>
+<CardContent>
+  <Grid container spacing={2}>
+    <div>hello</div>
+    {/* {infoItems.map((element, index) => {
+      return (
+        <Grid item display={"flex"} key={index} xs={6}>
+          {infoIcons[index]}
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            sx={{ mr: 2 }}
+          >
+            {element || "N/A"}
+          </Typography>
+        </Grid>
+      );
+    })} */
+}
+//   </Grid>
+// </CardContent>
+// </Collapse> */}

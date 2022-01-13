@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import rideStatusMap from "../lib/rideStatusMap";
+import useRideRequests from "../hooks/useRideRequests";
+import RequestList from "./RequestList";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -25,6 +27,8 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RideCard({ ride, isConstantSize = false }) {
+  const { requests } = useRideRequests(ride._id);
+  console.log(requests);
   const [expanded, setExpanded] = React.useState(false);
   const navigate = useNavigate();
 
@@ -43,10 +47,10 @@ export default function RideCard({ ride, isConstantSize = false }) {
         // onClick={() => navigate(`/pets/${pet._id}`)}
       >
         <CardHeader
-          //   avatar={petIconMap[pet.type]}
+        //   avatar={petIconMap[pet.type]}
 
-          title={"hello"}
-          subheader={"Hello 2"}
+        // title={"hello"}
+        // subheader={"Hello 2"}
         />
         <CardContent>
           <Typography color="text.secondary" gutterBottom>
@@ -80,21 +84,7 @@ export default function RideCard({ ride, isConstantSize = false }) {
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <CardContent>
             <Grid container spacing={2}>
-              <div>hello</div>
-              {/* {infoItems.map((element, index) => {
-                return (
-                  <Grid item display={"flex"} key={index} xs={6}>
-                    {infoIcons[index]}
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      sx={{ mr: 2 }}
-                    >
-                      {element || "N/A"}
-                    </Typography>
-                  </Grid>
-                );
-              })} */}
+              {requests && <RequestList rides={requests} />}
             </Grid>
           </CardContent>
         </Collapse>
