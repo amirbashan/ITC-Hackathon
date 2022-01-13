@@ -21,7 +21,7 @@ const lng=params[1][1]
      {
          try{
              setLoading(true)
-        const data= await axios.get(`https://ride2gether-api.herokuapp.com/api/v1/api/v1/rides/rides-within/${radius}/center/${lat},${lng}/unit/km`)
+        const data= await axios.get(`https://ride2gether-api.herokuapp.com/api/v1/rides/rides-within/.${radius}/center/${lat},${lng}/unit/km`)
          }
          catch(e){
              console.log(e)
