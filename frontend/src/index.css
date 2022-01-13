@@ -98,3 +98,27 @@ input:-moz-placeholder {
   display: flex;
   flex-direction: column;
 }
+
+.desktop-wrapper {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.timer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.timer-container > * {
+  margin: 1rem;
+}
+
+.center-margins {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type="time"]::-webkit-calendar-picker-indicator {
+}
