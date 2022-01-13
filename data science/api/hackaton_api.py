@@ -3,8 +3,10 @@ from flask import request
 import pandas as pd
 import pickle
 import numpy as np
+import xgboost as xgb
 
-price_model37 = pickle.load(open('price_model37.pkl', 'rb'))
+price_model = xgb.XGBRegressor(objective='reg:squarederror', n_estimators = 100)
+price_model.load_model('price_model37.json')
 app = Flask(__name__)
 
 
@@ -23,7 +25,7 @@ def predict_price():
 
     X_new = np.fromiter(features_dic.values(), dtype=float)
     predict_me = X_new.reshape(1, -1)
-    y_p = price_model37.predict(predict_me)[0]
+    y_p = price_model.predict(predict_me)[0]
 
     return f"{y_p}"
 
