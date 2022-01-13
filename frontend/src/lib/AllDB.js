@@ -45,7 +45,7 @@ export const getOneUserInfo = () => {
 export const postRide = () => {
   return axios
 
-    .get(`${URL}${version}/ride/`)
+    .post(`${URL}${version}/rides/`)
     .then((response) => {
       return response.data;
     })
