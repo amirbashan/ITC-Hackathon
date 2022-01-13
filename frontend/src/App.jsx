@@ -19,7 +19,12 @@ function App() {
 
   return (
     <>
-      {pathname === "/" || pathname === "/signup" || pathname === "/login" ? <MiniNav /> : 
+      {pathname === "/" || pathname === "/signup" || pathname === "/login" ? 
+      <>
+      <Navbar/>
+      <MiniNav />
+      </>
+       : 
       <>
         <Navbar />
         <UserNav />

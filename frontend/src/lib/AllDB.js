@@ -44,6 +44,16 @@ export const getOneUserInfo = () => {
     .catch((error) => alert(error.response));
 };
 
+export const postRide = () => {
+  return axios
+
+    .post(`${URL}${version}/rides/`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => alert(error.response));
+};
+
 // export const getUsersTableInfo = (token) => {
 //   return axios
 

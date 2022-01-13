@@ -17,8 +17,8 @@ const StartPage = () => {
       </p>
       <div className="lower-navigation">
         {/* <Button onClick={handleClick} text="Continue to sign up" /> */}
-        <Link to="/signup" className="lower-navigation">
-          Sign-up / Log-in
+        <Link to="/signup"                      className="round-button">
+          Continue to sign up
         </Link>
         <p className="bold gray">Join now and start saving from the first ride.</p>
       </div>

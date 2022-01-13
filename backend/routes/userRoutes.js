@@ -42,19 +42,11 @@ router.get("/me", getMe, getUser);
 router.patch("/updateMe", upload.single("photo"), imageUploader, updateMe);
 router.delete("/deleteMe", deleteMe);
 
-<<<<<<< HEAD
-router
-  .route("/pets/:petId/save")
-  .post(restrictTo("user"), savePet, updateUser)
-  .delete(restrictTo("user"), deleteSavedPet, updateUser);
-router.route("/:id/savedPets").get(protect, getUserSavedPets);
-=======
 // router
 //   .route("/pets/:petId/save")
 //   .post(restrictTo("user"), savePet, updateUser)
 //   .delete(restrictTo("user"), deleteSavedPet, updateUser);
 // router.route("/:id/savedPets").get(protect, getUserSavedPets);
->>>>>>> 47875cd35ed09c27382313c30aa5f27652654807
 
 router.use(restrictTo("admin"));
 

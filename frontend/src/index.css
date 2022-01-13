@@ -79,3 +79,22 @@ input:-moz-placeholder {
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
+
+.next-container {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 1rem;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.map-wrapper {
+  height: 85%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
