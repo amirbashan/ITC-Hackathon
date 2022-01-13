@@ -56,43 +56,43 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="d-flex flex-column justify-content-center">
+    <div className="d-flex flex-column justify-content-center profile-page-container">
       <h1 className="m-auto">Profile page</h1>
-      <form className="d-flex m-auto my-3 w-75" onSubmit={(e) => handleOnSubmit(e)}>
+      <form className="d-flex m-auto my-3 w-75 profile-form desktop-wrapper width-100" onSubmit={(e) => handleOnSubmit(e)}>
         <div className="col d-flex flex-wrap align-items-end">
-          <label>role</label>
-          <input type="text" readOnly value={role} className="form-control" />
+          <label className="bold profile-label">Role</label>
+          <input type="text" readOnly value={role} className="form-control form-input" />
         </div>
         <div className="col d-flex flex-wrap align-items-end">
-          <label>rating</label>
-          <input type="text" readOnly value={ratingAvg} className="form-control" />
+          <label className="bold profile-label">Rating</label>
+          <input type="text" readOnly value={ratingAvg} className="form-control form-input" />
         </div>
         <div className="col d-flex flex-wrap align-items-end">
-          <label>Email</label>
-          <input type="text" onChange={(e) => handleEmailChange(e)} value={email} className="form-control" />
+          <label className="bold profile-label">Email</label>
+          <input type="text" onChange={(e) => handleEmailChange(e)} value={email} className="form-control form-input" />
         </div>
         <div className="col d-flex flex-wrap align-items-end">
-          <label>full name</label>
-          <input type="text" onChange={(e) => handleNameChange(e)} value={name} className="form-control" maxLength="30" required />
+          <label className="bold profile-label">Full name</label>
+          <input type="text" onChange={(e) => handleNameChange(e)} value={name} className="form-control form-input" maxLength="30" required />
         </div>
         <div className="col d-flex flex-wrap align-items-end">
-          <label>Phone</label>
-          <input type="text" onChange={(e) => handlePhoneChange(e)} value={phone} className="form-control" maxLength="20" required />
+          <label className="bold profile-label">Phone</label>
+          <input type="text" onChange={(e) => handlePhoneChange(e)} value={phone} className="form-control form-input" maxLength="20" required />
         </div>
         <div className="col d-flex flex-wrap align-items-end">
-          <label>Bio</label>
-          <input type="text" onChange={(e) => handleBioChange(e)} value={bio} className="form-control" maxLength="250" required />
+          <label className="bold profile-label">Bio</label>
+          <input type="text" onChange={(e) => handleBioChange(e)} value={bio} className="form-control form-input" maxLength="250" required />
         </div>
 
-        <div className="col d-flex">
+        <div className="col d-flex width-100">
           {!editMode && (
-            <button type="button" onClick={() => setEditMode(true)} className="btn btn-sm btn-warning border ">
+            <button type="button" onClick={() => setEditMode(true)} className="btn btn-sm btn-warning border round-button width-100">
               Enable Edit Mode
             </button>
           )}
 
           {editMode && (
-            <button type="submit" className="btn btn-sm btn-success border ">
+            <button type="submit" className="btn btn-sm btn-success border round-button width-100">
               Save changes
             </button>
           )}

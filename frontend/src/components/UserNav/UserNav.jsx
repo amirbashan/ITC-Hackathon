@@ -14,6 +14,9 @@ const UserNav = () => {
             {
             dropdown &&
                 <>
+                <Link to="/map" className="px-4 nav-link bold" >
+                    Search a ride
+                </Link>
                 <Link to="/profile" className="px-4 nav-link bold" >
                     User Profile
                 </Link>
