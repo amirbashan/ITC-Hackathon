@@ -8,7 +8,9 @@ const RideTile = ({name,rating,duration,price}) => {
             <div className="ride-info">
                 <div className="passenger">
                     <p className="bold">Ride with {name}</p>
+                    {rating &&
                     <UserRating stars={rating}/>
+                    }
                 </div>
                 <div className="duration">
                     <p className="bold">Ride duration</p>
