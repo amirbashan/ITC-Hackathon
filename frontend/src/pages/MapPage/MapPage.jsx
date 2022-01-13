@@ -15,6 +15,9 @@ const MapPage = () => {
   const [latStart, setlatStart] = useState(null);
   const [lngStart, setlngStart] = useState(null);
   const [rideTime, setrideTime] = useState(null);
+  const [day, setDay] = useState(null);
+  const [month, setMonth] = useState(null);
+  const [year, setYear] = useState(null);
   const [latEnd, setlatEnd] = useState(null);
   const [lngEnd, setlngEnd] = useState(null);
   function handleNext() {
@@ -22,17 +25,28 @@ const MapPage = () => {
     setshowmap2(true);
   }
 
+  const fixTime = (year, month, day, time) => {
+    let rideFix = year.toString() + "-";
+    month < 10 ? (rideFix += "0" + month.toString() + "-") : (rideFix += month.toString() + "-");
+    day < 10 ? (rideFix += "0" + day.toString()) : (rideFix += day.toString());
+    rideFix += "T" + time + ":00.000Z";
+
+    return rideFix;
+  };
+
   function handleSubmit() {
+    const rideFix = fixTime(year, month, day, rideTime);
     const rideData = {
-      rideTime: rideTime,
+      rideTime: rideFix,
       pickUp: { coordinates: [latStart, lngStart] },
       dropOff: { coordinates: [latEnd, lngEnd] },
     };
-    console.log(rideData);
+    console.log(rideFix);
   }
   async function handlePost() {
+    const rideFix = fixTime(year, month, day, rideTime);
     const rideData = {
-      rideTime: rideTime,
+      rideTime: rideFix,
       pickUp: { coordinates: [lngStart, latStart] },
       dropOff: { coordinates: [lngEnd, latEnd] },
     };
@@ -55,9 +69,7 @@ const MapPage = () => {
   }
   return (
     <div id="mapPage">
-      {showmap1 && (
-        <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />
-      )}
+      {showmap1 && <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
       {showmap2 && <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />}
       {showmap1 && (
         <div className="next-container">
@@ -125,6 +137,21 @@ const MapPage = () => {
               setrideTime(event.target.value);
             }}
           />
+          <div className="date-container">
+              <input type="number" onChange={(e) => setDay(e.target.value)} value={day} placeholder="Day" className="form-control select-input " min="1" max="31" required />
+              <input type="number" onChange={(e) => setMonth(e.target.value)} value={month} placeholder="Month" className="form-control select-input" min="1" max="12" required />
+              <input
+                type="number"
+                onChange={(e) => setYear(e.target.value)}
+                value={year}
+                placeholder="Year"
+                className="form-control select-input"
+                min="2022"
+                max="2027"
+                required
+              />
+            </div>
+
           <Button
             sx={{
               backgroundColor: "#ffce54",
