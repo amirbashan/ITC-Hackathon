@@ -54,7 +54,6 @@ const MapPage = () => {
     const res = await postRide(rideData);
     if (res) {
       console.log(res);
-      //   alert("you succusfully posted a ride!");
       navigate({
         pathname: "/results",
         search: `?lat=${latStart}&lng=${lngStart}&latEnd=${latEnd}&lngEnd=${lngEnd}`,
