@@ -5,7 +5,11 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
+<<<<<<< HEAD
+    "start": "nodemon server.js",
+=======
     "start": "node server.js",
+>>>>>>> 47875cd35ed09c27382313c30aa5f27652654807
     "dev": "nodemon server.js",
     "start-prod": "NODE_ENV=production nodemon server.js",
     "import-data": "node dev-data/importDevData.js --import",

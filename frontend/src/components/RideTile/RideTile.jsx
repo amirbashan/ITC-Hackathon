@@ -7,7 +7,7 @@ const RideTile = ({name,rating,duration,price}) => {
         <div className="ride-tile">
             <div className="ride-info">
                 <div className="passenger">
-                    <p className="bold">Ride with Muhammad</p>
+                    <p className="bold">Ride with {name}</p>
                     <UserRating stars={rating}/>
                 </div>
                 <div className="duration">

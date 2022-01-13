@@ -64,7 +64,9 @@ export const postRide = () => {
 
 export const editUserInfo = (token, user, id) => {
   return axios
-    .put(`http://localhost:8000/users/id/?id=${id}`, user, { headers: { Authorization: `Bearer ${token}` } })
+    .put(`http://localhost:8000/users/id/?id=${id}`, user, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
     .then((response) => {
       return response.data;
     })

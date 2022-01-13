@@ -5,8 +5,10 @@ import { Button, Input } from "@chakra-ui/react";
 import "./MapPage.css";
 import { postRide } from "../../lib/AllDB";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const MapPage = () => {
+  const { user } = useAuthContext();
   const navigate = useNavigate();
   const [showmap1, setshowmap1] = useState(true);
   const [showmap2, setshowmap2] = useState(false);
@@ -44,7 +46,9 @@ const MapPage = () => {
   }
   return (
     <div id="mapPage">
-      {showmap1 && <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />}
+      {showmap1 && (
+        <MyGoogleMap setlatStart={setlatStart} setlngStart={setlngStart} />
+      )}
       {showmap2 && <MyGoogleMap2 setlatEnd={setlatEnd} setlngEnd={setlngEnd} />}
       {showmap1 && <Button onClick={handleNext}>next</Button>}
       {showmap2 && (
