@@ -11,6 +11,7 @@ const StartPage = () => {
 
   return (
     <div id="startPage">
+      <div className="desktop-wrapper">
       <TaxiSvg className="taxi-wrapper" />
       <p className="bold">
         Our application allows you to save money by sharing your cab with someone near you. We’ve helped over 643 people and saved over 321,489$
@@ -21,6 +22,7 @@ const StartPage = () => {
           Continue to sign up
         </Link>
         <p className="bold gray">Join now and start saving from the first ride.</p>
+      </div>
       </div>
     </div>
   );
