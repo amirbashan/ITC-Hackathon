@@ -3,6 +3,8 @@ import axios from "axios";
 const URL = `https://ride2gether-api.herokuapp.com`;
 const version = `/api/v1`;
 
+axios.defaults.withCredentials = true;
+
 export const signUpUser = (user) => {
   return axios
     .post(`${URL}${version}/users/signup`, user)
