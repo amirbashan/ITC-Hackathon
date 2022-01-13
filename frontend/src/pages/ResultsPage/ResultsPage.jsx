@@ -20,9 +20,13 @@ const lng=params[1][1];
     useState()
      async function getResults (radius,lat,lng)
      {
+         radius=1
          try{
              setLoading(true)
-        const data= await axios.get(`https://ride2gether-api.herokuapp.com/api/v1/rides/rides-within/.${radius}/center/${lat},${lng}/unit/km`)
+        const data= await axios.get(`https://ride2gether-api.herokuapp.com/api/v1/rides/rides-within/${radius}/center/${lat},${lng}/unit/km`)
+        setResults( data.data)
+              console.log(results);
+
          }
          catch(e){
              console.log(e)
@@ -34,8 +38,7 @@ const lng=params[1][1];
     
     
     useEffect(() => {
-     const initialResults=  getResults(1,lat,lng)
-     console.log(initialResults)
+      getResults(1,lat,lng)
         
     }, [])
 
@@ -44,13 +47,8 @@ const lng=params[1][1];
         <div id="resultsPage">
           <div id="resultsList">
               {loading && "Loading"}
-            {results && results.map((ride) => {
-              return (
-                <RideTile
-                  key={ride.userID}
-                  name={ride.userID}
-                />
-              );
+            {results && (results.length>0) && results.map((ride) => {
+              return <RideTile key={ride._id} name={ride.createdBy} />;
             })}
           </div>
           
